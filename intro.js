@@ -5,10 +5,10 @@
 // 2017-12-11
 
 // the things you need from the orignal html
-var list = document.getElementById("thelist");
+const list = document.getElementById("thelist");
 const b = document.getElementById("b");
 const h = document.getElementById("h");
-var l = document.getElementsByTagName("li");
+const l = list.getElementsByTagName("li");
 const head = h.innerHTML;
 
 
@@ -48,3 +48,26 @@ const add = function(){
   // console.log(l);
 }
 b.addEventListener("click", add);
+
+// phase 2
+const addf = function(){
+  var el = document.createElement("li");
+  console.log(l2.length);
+  if (l2.length < 2)
+    el.innerHTML = "1";
+  else
+    el.innerHTML = parseInt(l2[l2.length - 2].innerHTML) + parseInt(l2[l2.length - 1].innerHTML);
+  console.log(el.innerHTML);
+  addE(el);
+  list2.append(el);
+}
+const list2 = document.createElement("ol");
+const l2 = list2.getElementsByTagName("li");
+const b2 = document.createElement("button");
+list2.setAttribute("id", "list2");
+b2.setAttribute("id", "b2");
+b2.innerHTML += "fibanachi generator";
+b2.addEventListener("click", addf);
+const bodyy = document.getElementsByTagName("body")
+bodyy[0].appendChild(list2);
+bodyy[0].appendChild(b2);
