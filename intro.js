@@ -10,6 +10,7 @@ const b = document.getElementById("b");
 const h = document.getElementById("h");
 const l = list.getElementsByTagName("li");
 const head = h.innerHTML;
+const bodyy = document.getElementsByTagName("body")
 
 
 // functions that do the things (li functions)
@@ -52,7 +53,7 @@ b.addEventListener("click", add);
 // phase 2
 const addf = function(){
   var el = document.createElement("li");
-  console.log(l2.length);
+  // console.log(l2.length);
   if (l2.length < 2)
     el.innerHTML = "1";
   else
@@ -68,6 +69,28 @@ list2.setAttribute("id", "list2");
 b2.setAttribute("id", "b2");
 b2.innerHTML += "fibanachi generator";
 b2.addEventListener("click", addf);
-const bodyy = document.getElementsByTagName("body")
 bodyy[0].appendChild(list2);
 bodyy[0].appendChild(b2);
+
+const addt = function(){
+  var el = document.createElement("li");
+  console.log(l3.length);
+  if (l3.length < 2)
+    el.innerHTML = "1";
+  else if (l3.length == 2)
+    el.innerHTML = "2";
+  else
+    el.innerHTML = parseInt(l3[l3.length - 3].innerHTML) + parseInt(l3[l3.length - 2].innerHTML) + parseInt(l3[l3.length - 1].innerHTML);
+  // console.log(el.innerHTML);
+  addE(el);
+  list3.append(el);
+}
+const list3 = document.createElement("ol");
+const l3 = list3.getElementsByTagName("li");
+const b3 = document.createElement("button");
+list3.setAttribute("id", "list3");
+b3.setAttribute("id", "b3");
+b3.innerHTML += "tribanachi generator";
+b3.addEventListener("click", addt);
+bodyy[0].appendChild(list3);
+bodyy[0].appendChild(b3);
